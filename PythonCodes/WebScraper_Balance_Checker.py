@@ -1,4 +1,4 @@
-#scrape.py
+
 # 1. All websites are basically HTML/CSS and javascript
 # 2. We can use python to find whatever tags we are looking for.
 # 3. For pages that use a lot of javascript, we can  use web drivers instead to make the calls
