@@ -11,7 +11,8 @@ Problems:
 - [x] 3. Non-digits get rejected.
 
 On-going features:
-- [x] 1. Web Scraping on http://explorer.hacashpool.com/address/foo or http://block.hacash.org/address/ to check balance.
-- [ ] 2. Adding icons to menu-reply.
+- [x] 1. HAC formatter
+- [x] 2. Web Scraping on http://explorer.hacashpool.com/address/foo or http://block.hacash.org/address/ to check balance.
+- [ ] 3. Adding icons to menu-reply.
 
 
