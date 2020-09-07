@@ -32,7 +32,7 @@ CHOOSING, TYPING_REPLY, TYPING_CHOICE = range(3)
 
 reply_keyboard = [['Balance', 'Format'],
                   ['BalanceAndFormat', '/start'],
-                  ['New Input']]
+                  ['@hacashpool']]
 markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True)
 
 #joiner
@@ -457,7 +457,7 @@ def main():
     # Create the Updater and pass it your bot's token.
     # Make sure to set use_context=True to use the new context based callbacks
     # Post version 12 this will no longer be necessary
-    updater = Updater("1289982709:AAEMDfXs70QVYpBHTw4s8y2u1O_xBeD9fw4", use_context=True)
+    updater = Updater("YOUR TOKEN HERE", use_context=True)
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
