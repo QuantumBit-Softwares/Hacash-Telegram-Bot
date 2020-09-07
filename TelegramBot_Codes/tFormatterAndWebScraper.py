@@ -47,8 +47,13 @@ def facts_to_str(user_data):
 
 def start(update, context):
     update.message.reply_text(
-        "Hi! My name is Doctor Botter. I will hold a more complex conversation with you. "
-        "Why don't you tell me something about yourself?",
+        "💫🐟🌊\n"
+        "You can create a pull request here: https://github.com/asher-lab/Hacash-Telegram-Bot\n"
+        "\nClick /start again if you encounter any problems using the bot. You can contact @warrenbuffer in case of problems or suggestions, you can also create a pull request on Github.\n"
+        "💫🐟🌊\n\n"
+        
+        "Hi! My name is 🐸HacashBot🐸. I will make your Hacash life easy. "
+        "You can choose for options on the menu.",
         reply_markup=markup)
 
     return CHOOSING
@@ -58,7 +63,7 @@ def regular_choice(update, context):
     text = update.message.text
     context.user_data['choice'] = text
     update.message.reply_text(
-        'Your {}? Yes, I would love to hear about that!'.format(text.lower()))
+        'Your {}? Yes, I would love to know more about that! Please enter the details below:'.format(text.lower()))
 
     return TYPING_REPLY
 
@@ -452,7 +457,7 @@ def main():
     # Create the Updater and pass it your bot's token.
     # Make sure to set use_context=True to use the new context based callbacks
     # Post version 12 this will no longer be necessary
-    updater = Updater("YOUR_TOKEN HERE PLEASE PUT YOUR TOKEN HERE FROM BOTFATHER WITH QUOTE , DONT REMOVE QUOTE", use_context=True)
+    updater = Updater("1289982709:AAEMDfXs70QVYpBHTw4s8y2u1O_xBeD9fw4", use_context=True)
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
