@@ -6,9 +6,10 @@ Progress:
 Set up a bot using BotFather >> [HacashBot](t.me/HacashBot)
 Bot is in beta:
 Issues:
-- [x] 1. Consensus to >248 and <240
-- [x] 2. Rounding Up numbers still in debate since lower values can't be represented in higher formats.
-- [x] 3. Non-digits get rejected.
+- [x] 1. Consensus to >248 and <240 / changed to 230 - 255
+- [x] 2. Rounding Up numbers still in debate since lower values can't be represented in higher formats. /not necessary
+- [x] 3. Non-digits get rejected. /not necessary
+- [x] 4. Fixed a bug on #Balance and #BalanceAndFormatter when inputing values with '/' since it can trigger new page leading to 'not found reply' instead of 'Address has no     Balance' /fixed   
 
 On-going features:
 - [x] 1. HAC formatter
