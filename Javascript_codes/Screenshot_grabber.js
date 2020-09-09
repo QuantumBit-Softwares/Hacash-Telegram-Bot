@@ -1,3 +1,4 @@
+// curl -F "file=@google.png" https://file.io
 const puppeteer = require ("puppeteer");
 const chalk = require("chalk")
 //MY OCD of colorful logs for debugging
