@@ -15,6 +15,6 @@ On-going features:
 - [x] 1. HAC formatter
 - [x] 2. Web Scraping on http://explorer.hacashpool.com/address/foo or http://block.hacash.org/address/ to check balance by using BeautifulSoup
 - [ ] 3. Adding icons to menu-reply.
-- [ ] 4. Web Scraping dynamic data using Puppeteer by using Node.js framework.
+- [ ] 4. Web Scraping dynamic data using Puppeteer by using Node.js framework. Or Pyppeteer port of Puppeteer
 
 
