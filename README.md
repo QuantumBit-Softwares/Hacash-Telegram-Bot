@@ -16,5 +16,6 @@ On-going features:
 - [x] 2. Web Scraping on http://explorer.hacashpool.com/address/foo or http://block.hacash.org/address/ to check balance by using BeautifulSoup
 - [ ] 3. Adding icons to menu-reply.
 - [ ] 4. Web Scraping dynamic data using Puppeteer by using Node.js framework. Or Pyppeteer port of Puppeteer
+- [ ] 5. Use http://explorer.hacashpool.com/api/block/list?last=169355&limit=100 to store hash value necessary to scrape diamond and address values. 
 
 
