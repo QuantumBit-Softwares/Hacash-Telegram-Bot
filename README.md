@@ -16,6 +16,7 @@ On-going features:
 - [x] 2. Web Scraping on http://explorer.hacashpool.com/address/foo or http://block.hacash.org/address/ to check balance by using BeautifulSoup
 - [x] 3. Adding icons to menu-reply. //it can be implemented however there are instances where (for example, MAC Os) has a hard time accessing the menu button.  Since implementing icons on the menu reply also requires ```menu-reply == string-command-identifier``` which not smart to implement.
 - [x] 4. Web Scraping dynamic data using Puppeteer by using Node.js framework. Or Pyppeteer port of Puppeteer /done
+- [ ] 5. Diamond name finder - Log the address on [http://explorer.hacashpool.com/diamond/.....] on a file by knowing name of  diamondnum>blk.dat (from hacash_mainnet_data). Then set name of diamond to the address, thus creating a database.
 
 
 Note: The program can also be made by utilizing the API.
