@@ -24,3 +24,6 @@ On-going features:
 Note: The program can also be made by utilizing the API.
 
 
+# Hacash Wallet
+
+To avoid replication of ideas repositories I decided to merge Hacash Wallet to the Hacash - Telegram Bot Repo. The contents from Hacash Wallet and Hacash Telegram Bot are both independent of each other.
