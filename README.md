@@ -23,7 +23,5 @@ On-going features:
 
 Note: The program can also be made by utilizing the API.
 
+# Special Note: HacashBot is currently offline, I am trying to utilize the API service to create more functions and changes into the bot.
 
-# Hacash Wallet
-
-To avoid replication of ideas repositories I decided to merge Hacash Wallet to the Hacash - Telegram Bot Repo. The contents from Hacash Wallet and Hacash Telegram Bot are both independent of each other.
