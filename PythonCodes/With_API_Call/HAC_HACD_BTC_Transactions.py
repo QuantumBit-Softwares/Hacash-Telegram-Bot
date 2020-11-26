@@ -2,6 +2,8 @@ import requests
 import json
 
 choice = input(" 1. Hacash Transfer\n 2. Hacash Diamond Transfer\n 3. Bitcoin Transfer\n")
+
+# Hacash Transaction
 if choice == "1":
     amount = input("Enter Hac Amount: ")
     to_address = input ("Enter Destination Address: ")
@@ -28,3 +30,5 @@ if choice == "1":
             print("Transaction ERROR. Please check you entries and try again.")
     if validation == "cancel":
         print("Transaction is CANCELLED")
+# Hacash Diamond Transaction
+# Bitcoin Transaction
