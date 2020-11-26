@@ -446,34 +446,37 @@ def received_information(update, context):
         hacTx = third
         #split string by ,
         chunks = hacTx.split(',')
-        amount = chunks[0]
-        to_address = chunks[1]
-        main_prikey = chunks[2]
+        row_count = len(chunks)
+        if (row_count == 3 ):
+            amount = chunks[0]
+            to_address = chunks[1]
+            main_prikey = chunks[2]
 
-        #validation = input(f"Transferring {amount} HAC to {to_address}, type |confirm| to proceed. If you wish to cancel type |cancel| >>   ")
-        #if validation == "confirm":
-        update.message.reply_text(f"Transferring {amount} HAC to {to_address}")
-        update.message.reply_text("Sending in 3...2...1...")
-        url=("http://rpcapi.hacash.org/create?action=value_transfer_tx&main_prikey="+ main_prikey +"&fee=0.0001&unitmei=true&transfer_kind=hacash&amount="+amount+"&to_address="+to_address)
-        result = requests.get(url)
-        src = result.text
-        dataRes = json.loads(src)
-        if ((dataRes['ret']) == 0):
-            params = (('action', 'transaction'),('hexbody', '1'),)
-            data = (dataRes['body'])
-            response = requests.post('http://rpcapi.hacash.org/submit', params=params, data=data)
-            responseCurl = (response.text)
-            dataJson = json.loads(responseCurl)
-            if((dataJson['ret']) == 1):
-               update.message.reply_text("Transfer FAILED:" + (dataJson['errmsg']))
-            if ((dataJson['ret']) == 0):
-               update.message.reply_text("Transaction ID:" + (dataRes['hash']))
-               update.message.reply_text("Transfer SUCCESS")
-        if ((dataRes['ret']) == 1):
-            update.message.reply_text("Transaction ERROR. Please check you entries and try again.")
-       # if validation == "cancel":
-         #   print("Transaction is CANCELLED")
-        
+            #validation = input(f"Transferring {amount} HAC to {to_address}, type |confirm| to proceed. If you wish to cancel type |cancel| >>   ")
+            #if validation == "confirm":
+            update.message.reply_text(f"Transferring {amount} HAC to {to_address}")
+            update.message.reply_text("Sending in 3...2...1...")
+            url=("http://rpcapi.hacash.org/create?action=value_transfer_tx&main_prikey="+ main_prikey +"&fee=0.0001&unitmei=true&transfer_kind=hacash&amount="+amount+"&to_address="+to_address)
+            result = requests.get(url)
+            src = result.text
+            dataRes = json.loads(src)
+            if ((dataRes['ret']) == 0):
+                params = (('action', 'transaction'),('hexbody', '1'),)
+                data = (dataRes['body'])
+                response = requests.post('http://rpcapi.hacash.org/submit', params=params, data=data)
+                responseCurl = (response.text)
+                dataJson = json.loads(responseCurl)
+                if((dataJson['ret']) == 1):
+                   update.message.reply_text("Transfer FAILED:" + (dataJson['errmsg']))
+                if ((dataJson['ret']) == 0):
+                   update.message.reply_text("Transaction ID:" + (dataRes['hash']))
+                   update.message.reply_text("Transfer SUCCESS")
+            if ((dataRes['ret']) == 1):
+                update.message.reply_text("Transaction ERROR. Please check you entries and try again.")
+           # if validation == "cancel":
+             #   print("Transaction is CANCELLED")
+        if (row_count != 3):
+            update.message.reply_text("Please check you entry")
             
             
     user_data.clear()
@@ -505,7 +508,7 @@ def main():
     # Create the Updater and pass it your bot's token.
     # Make sure to set use_context=True to use the new context based callbacks
     # Post version 12 this will no longer be necessary
-    updater = Updater("1233720331:AAGDecX2bWvP6c-Sgdfg64hrmnZifcJ-_GY", use_context=True)
+    updater = Updater("PUT YOUR TOKEN HERE DONT REMOVE QUOTATION MARKS", use_context=True)
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
