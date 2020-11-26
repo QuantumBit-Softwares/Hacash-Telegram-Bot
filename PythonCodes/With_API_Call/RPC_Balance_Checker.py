@@ -3,7 +3,7 @@ import requests
 
 address_input = input("Enter your HAC address: ")
 
-url = ("http://8.210.144.170:8083/query?action=balances&address_list="+address_input)
+url = ("http://rpcapi.hacash.org/query?action=balances&address_list="+address_input)
 result = requests.get(url)
 src = result.text
 data = json.loads(src)
