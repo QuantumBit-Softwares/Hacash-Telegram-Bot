@@ -31,9 +31,9 @@ logger = logging.getLogger(__name__)
 CHOOSING, TYPING_REPLY, TYPING_CHOICE = range(3)
 
 reply_keyboard = [['Balance', 'Format'],
-                  ['BalanceAndFormat', '/start'],
+                  ['BalanceAndFormat', 'sendHAC'],
+                  ['GenerateWallet','/start'],
                   ['@hacashpool'],
-                  ['GenerateWallet'],
                   ]
 markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True)
 
@@ -78,7 +78,7 @@ def regular_choice(update, context):
     text = update.message.text
     context.user_data['choice'] = text
     update.message.reply_text(
-        'Your {}? Yes, I would love to know more about that! Input: \n\n ✅If Balance, BalanceAndFormat = input HAC Address (👉 1NpcusWsFysWWoQXxTM21X8gn7d98xbkDC)\n\n ✅If Format = input HAC Amount (👉 ㄜ379,999,992:240 or 379,999,992:240)\n\n ✅If GenerateWallet = input no. of Wallets to be Generated in Numbers (👉 1 - 200 only)'.format(text.lower()))
+        'Your {}? Yes, I would love to know more about that! Input: \n\n ✅If Balance, BalanceAndFormat = \n\ninput HAC Address (👉 1NpcusWsFysWWoQXxTM21X8gn7d98xbkDC)\n\n ✅If Format = \n\ninput HAC Amount (👉 ㄜ379,999,992:240 or 379,999,992:240)\n\n ✅If GenerateWallet = \n\ninput no. of Wallets to be Generated in Numbers (👉 1 - 200 only)\n\n ✅If sendHAC = \n\ninput amount,destination address,private_key_of_source (👉 1,1EnSNcYjbMZuZagRaw4pU2yTzjca3DXzDJ,0cdd4ac52f27b82f27470f1859bf3c80166c89ad53a6c227227ba8d4b090a79e)*No spaces, 1 means 1 HAC'.format(text.lower()))
 
     return TYPING_REPLY
 
@@ -442,12 +442,18 @@ def received_information(update, context):
            
     #Create Transaction
     # Hacash Transaction
-     amount = input("Enter Hac Amount: ")
-    to_address = input ("Enter Destination Address: ")
-    main_prikey= input("Private key from Hac source: ")
-    validation = input(f"Transferring {amount} HAC to {to_address}, type |confirm| to proceed. If you wish to cancel type |cancel| >>   ")
-    if validation == "confirm":
-        print("yes")
+    if (first == 'sendHAC'):
+        hacTx = third
+        #split string by ,
+        chunks = hacTx.split(',')
+        amount = chunks[0]
+        to_address = chunks[1]
+        main_prikey = chunks[2]
+
+        #validation = input(f"Transferring {amount} HAC to {to_address}, type |confirm| to proceed. If you wish to cancel type |cancel| >>   ")
+        #if validation == "confirm":
+        update.message.reply_text(f"Transferring {amount} HAC to {to_address}")
+        update.message.reply_text("Sending in 3...2...1...")
         url=("http://rpcapi.hacash.org/create?action=value_transfer_tx&main_prikey="+ main_prikey +"&fee=0.0001&unitmei=true&transfer_kind=hacash&amount="+amount+"&to_address="+to_address)
         result = requests.get(url)
         src = result.text
@@ -459,14 +465,14 @@ def received_information(update, context):
             responseCurl = (response.text)
             dataJson = json.loads(responseCurl)
             if((dataJson['ret']) == 1):
-                print("Transfer FAILED:" + (dataJson['errmsg']))
+               update.message.reply_text("Transfer FAILED:" + (dataJson['errmsg']))
             if ((dataJson['ret']) == 0):
-                print("Transaction ID:" + (dataRes['hash']))
-                print("Transfer SUCCESS")
+               update.message.reply_text("Transaction ID:" + (dataRes['hash']))
+               update.message.reply_text("Transfer SUCCESS")
         if ((dataRes['ret']) == 1):
-            print("Transaction ERROR. Please check you entries and try again.")
-    if validation == "cancel":
-        print("Transaction is CANCELLED")
+            update.message.reply_text("Transaction ERROR. Please check you entries and try again.")
+       # if validation == "cancel":
+         #   print("Transaction is CANCELLED")
         
             
             
@@ -509,7 +515,7 @@ def main():
         entry_points=[CommandHandler('start', start)],
 
         states={#User choose what command and send
-            CHOOSING: [MessageHandler(Filters.regex('^(Balance|Format|BalanceAndFormat|GenerateWallet)$'),
+            CHOOSING: [MessageHandler(Filters.regex('^(Balance|Format|BalanceAndFormat|GenerateWallet|sendHAC)$'),
                                       regular_choice),
                        MessageHandler(Filters.regex('^..$'),
                                       custom_choice)
