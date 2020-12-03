@@ -23,5 +23,5 @@ On-going features:
 
 Note: The program can also be made by utilizing the API.
 
-# Special Note: HacashBot is currently offline, I am trying to utilize the API service to create more functions and changes into the bot.
+# Special Note: HacashBot is now online. Access t.me/HacashBot
 
