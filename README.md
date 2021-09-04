@@ -1,5 +1,5 @@
 # Hacash-Telegram-Bot
-# Special Note: HacashBot is now offline. Access t.me/HacashBot Start of maintenance April 19 2021. Sorry for the inconvenience
+
 t.me/HacashBot
 
 I am creating an open source project for Hacash in Telegram, it will be known as HacashBot
