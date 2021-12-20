@@ -5,7 +5,7 @@ t.me/HacashBot
 I am creating an open source project for Hacash in Telegram, it will be known as HacashBot
 
 Progress:
-Set up a bot using BotFather >> [HacashBot](t.me/HacashBot)
+Set up a bot using BotFather >> [HacashBot]( https://t.me/HacashBot)
 Bot is in beta:
 Issues:
 - [x] 1. Consensus to >248 and <240 / changed to 230 - 255
